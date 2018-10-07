@@ -13,40 +13,33 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef StandAlone_h
-#define StandAlone_h
-
-#include <list>
+#ifndef Character_h
+#define Character_h
 
 #include "orx.h"
-#include "Character.h"
 
-class StandAlone {
+class Character {
+	orxOBJECT* entity;
+	orxVECTOR position, direction;
+	orxKEYBOARD_KEY key;
 public:
-	static StandAlone* Instance();
+	/**
+	 * Constructs a new character
+	 * @param pos Initial position for the character
+	 * @param character The character to display (and to type to destroy this entity)
+	 */
+	Character(orxVECTOR pos, orxKEYBOARD_KEY character);
 
-	static orxSTATUS orxFASTCALL Init();
-	static orxSTATUS orxFASTCALL Run();
+	/**
+	 * Update the character's position
+	 * @param clock Time information for the update
+	 */
+	void update(const orxCLOCK_INFO* clock);
 
-	static void orxFASTCALL Exit();
-
-	static void orxFASTCALL Update(const orxCLOCK_INFO*, void*);
-
-	static orxSTATUS orxFASTCALL EventHandler(const orxEVENT*);
-protected:
-	StandAlone();
-	StandAlone(const StandAlone&);
-	StandAlone& operator= (const StandAlone&);
-private:
-	static StandAlone* m_Instance;
-
-	static orxCAMERA* camera;
-	static orxVECTOR camPos;
-
-	static std::list<Character*> chars;
-	static orxFLOAT secondsSinceSpawn;
-
-	static void spawnChar();
+	/**
+	 * Destroy the associated entity
+	 */
+	void despawn();
 };
 
 #endif

@@ -13,7 +13,7 @@ FLAGS=-std=c++11 -c -o $(ODIR)/$(@F)
 LD=-I inc/ -L lib/
 LIB=-l orx
 
-OBJS=Main.o StandAlone.o
+OBJS=Main.o StandAlone.o Character.o
 _OBJS=$(patsubst %, $(ODIR)/%, $(OBJS))
 
 ifdef DEBUG

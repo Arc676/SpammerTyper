@@ -13,40 +13,28 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef StandAlone_h
-#define StandAlone_h
-
-#include <list>
-
-#include "orx.h"
 #include "Character.h"
 
-class StandAlone {
-public:
-	static StandAlone* Instance();
+Character::Character(orxVECTOR pos, orxKEYBOARD_KEY character) {
+	orxVector_Copy(&position, &pos);
+	key = character;
 
-	static orxSTATUS orxFASTCALL Init();
-	static orxSTATUS orxFASTCALL Run();
+	entity = orxObject_CreateFromConfig("Character");
+	orxObject_SetPosition(entity, &position);
+	orxObject_SetTextString(entity, orxKeyboard_GetKeyName(key));
 
-	static void orxFASTCALL Exit();
+	orxVector_Mulf(&direction, &pos, -1.0f);
+	orxVector_Normalize(&direction, &direction);
+}
 
-	static void orxFASTCALL Update(const orxCLOCK_INFO*, void*);
+void Character::update(const orxCLOCK_INFO* clock) {
+	orxVECTOR ds;
+	orxVector_Copy(&ds, &direction);
+	orxVector_Mulf(&ds, &ds, clock->fDT);
+	orxVector_Add(&position, &position, &ds);
+	orxObject_SetPosition(entity, &position);
+}
 
-	static orxSTATUS orxFASTCALL EventHandler(const orxEVENT*);
-protected:
-	StandAlone();
-	StandAlone(const StandAlone&);
-	StandAlone& operator= (const StandAlone&);
-private:
-	static StandAlone* m_Instance;
-
-	static orxCAMERA* camera;
-	static orxVECTOR camPos;
-
-	static std::list<Character*> chars;
-	static orxFLOAT secondsSinceSpawn;
-
-	static void spawnChar();
-};
-
-#endif
+void Character::despawn() {
+	orxObject_SetLifeTime(entity, 0);
+}
