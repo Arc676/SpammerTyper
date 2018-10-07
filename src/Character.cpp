@@ -21,7 +21,9 @@ Character::Character(orxVECTOR pos, orxKEYBOARD_KEY character) {
 
 	entity = orxObject_CreateFromConfig("Character");
 	orxObject_SetPosition(entity, &position);
-	orxObject_SetTextString(entity, orxKeyboard_GetKeyName(key));
+	const orxSTRING name = orxKeyboard_GetKeyName(character);
+	const orxSTRING c = name + orxString_GetLength(name) - 1;
+	orxObject_SetTextString(entity, c);
 
 	orxVector_Mulf(&direction, &pos, -1.0f);
 	orxVector_Normalize(&direction, &direction);

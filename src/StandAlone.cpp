@@ -17,9 +17,9 @@
 
 StandAlone* StandAlone::m_Instance = orxNULL;
 orxCAMERA* StandAlone::camera = orxNULL;
-orxVECTOR StandAlone::camPos;
 std::list<Character*> StandAlone::chars;
 orxFLOAT StandAlone::secondsSinceSpawn = 0;
+orxFLOAT StandAlone::zoom;
 
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != orxNULL) {
@@ -35,7 +35,7 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	orxVIEWPORT* viewport = orxViewport_CreateFromConfig("Viewport");
 	camera = orxViewport_GetCamera(viewport);
 
-	orxCamera_GetPosition(camera, &camPos);
+	zoom = orxCamera_GetZoom(camera);
 
 	orxCLOCK* upClock = orxClock_FindFirst(-1.0f, orxCLOCK_TYPE_CORE);
 	orxClock_Register(upClock, Update, orxNULL, orxMODULE_ID_MAIN, orxCLOCK_PRIORITY_NORMAL);
@@ -92,8 +92,10 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 			dZ = 0.1;
 			break;
 		}
-		camPos.fZ += dZ;
-		orxCamera_SetPosition(camera, &camPos);
+		if (dZ != 0) {
+			zoom += dZ;
+			orxCamera_SetZoom(camera, zoom);
+		}
 		orxKeyboard_ClearBuffer();
 	}
 }

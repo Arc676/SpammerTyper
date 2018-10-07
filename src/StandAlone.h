@@ -41,7 +41,7 @@ private:
 	static StandAlone* m_Instance;
 
 	static orxCAMERA* camera;
-	static orxVECTOR camPos;
+	static orxFLOAT zoom;
 
 	static std::list<Character*> chars;
 	static orxFLOAT secondsSinceSpawn;
