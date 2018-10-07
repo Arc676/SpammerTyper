@@ -10,8 +10,8 @@ The other catch: the spawn rate of characters is inversely proportional to the z
 
 ## About
 
-SpammerTyper was created for the [Open Jam 2018](https://itch.io/jam/open-jam-2018).
+SpammerTyper was created for the [Open Jam 2018](https://itch.io/jam/open-jam-2018). Theme: Spam to win.
 
 ## Licensing
 
-Project available under GPLv3. See `LICENSE` for full license text.
+Project available under GPLv3. See `LICENSE` for full license text. Orx game engine available under the Zlib license (see [the repository](https://github.com/orx/orx) for details).

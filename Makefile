@@ -25,12 +25,9 @@ spammertyper: copyassets $(_OBJS)
 
 copyassets:
 	mkdir -p $(OUTDIR) $(ODIR)
-	cp -u Assets/Sound/* $(OUTDIR)
-	cp -u Assets/Sprites/* $(OUTDIR)
-	cp -u Assets/Font/* $(OUTDIR)
 	cp -u bin/*.ini $(OUTDIR)
 
-%.o: $(SDIR)/%.cpp
+$(ODIR)/%.o: $(SDIR)/%.cpp
 	$(CC) $(FLAGS) $(LD) $^
 
 clean:
