@@ -69,7 +69,7 @@ private:
 	static void changeHP(int delta);
 
 	// UI elements
-	static orxOBJECT *gameOver, *scoreLabel, *HPBar;
+	static orxOBJECT *gameOver, *scoreLabel, *HPBar, *zoomLabel;
 };
 
 #endif

@@ -15,6 +15,25 @@
 
 #include "Character.h"
 
+orxCOLOR Character::green;
+orxCOLOR Character::red;
+
+void Character::initColors() {
+	orxVECTOR rgb;
+	rgb.fX = 1;
+	rgb.fY = 0;
+	rgb.fZ = 0;
+
+	red.vRGB = rgb;
+	red.fAlpha = 1;
+
+	rgb.fX = 0;
+	rgb.fY = 1;
+
+	green.vRGB = rgb;
+	green.fAlpha = 1;
+}
+
 Character::Character(orxVECTOR pos, orxKEYBOARD_KEY character) {
 	// copy character properties
 	orxVector_Copy(&position, &pos);
@@ -31,6 +50,19 @@ Character::Character(orxVECTOR pos, orxKEYBOARD_KEY character) {
 	orxVector_Mulf(&direction, &pos, -1.0f);
 	orxVector_Normalize(&direction, &direction);
 	orxVector_Mulf(&direction, &direction, 40.0f);
+
+	switch (orxMath_GetRandomU32(0, 2)) {
+	case 1:
+		hpGain = orxMath_GetRandomU32(5, 20);
+		orxObject_SetColorRecursive(entity, &Character::red);
+		break;
+	case 2:
+		scoreGain = orxMath_GetRandomU32(10, 50);
+		orxObject_SetColorRecursive(entity, &Character::green);
+		break;
+	default:
+		break;
+	}
 }
 
 void Character::update(const orxCLOCK_INFO* clock) {
@@ -41,8 +73,13 @@ void Character::update(const orxCLOCK_INFO* clock) {
 	orxObject_SetPosition(entity, &position);
 }
 
-void Character::despawn() {
+void Character::despawn(int* HP, int* score) {
 	orxObject_SetLifeTime(entity, 0);
+	// if HP and score aren't null pointers
+	if (HP && score) {
+		*HP += hpGain;
+		*score += scoreGain;
+	}
 }
 
 orxKEYBOARD_KEY Character::getKey() {

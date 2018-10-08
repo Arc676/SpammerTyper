@@ -29,6 +29,7 @@ int StandAlone::score = 0;
 orxOBJECT* StandAlone::gameOver;
 orxOBJECT* StandAlone::scoreLabel;
 orxOBJECT* StandAlone::HPBar;
+orxOBJECT* StandAlone::zoomLabel;
 
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != orxNULL) {
@@ -64,6 +65,11 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 
 	HPBar = orxObject_CreateFromConfig("HPBar");
 	orxObject_SetParent(HPBar, camera);
+
+	zoomLabel = orxObject_CreateFromConfig("Zoom");
+	orxObject_SetParent(zoomLabel, camera);
+
+	Character::initColors();
 
 	return orxSTATUS_SUCCESS;
 }
@@ -116,7 +122,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 			changeHP(100 - HP);
 			secondsSinceSpawn = 0;
 			for (std::list<Character*>::iterator it = chars.begin(); it != chars.end();) {
-				(*it)->despawn();
+				(*it)->despawn(nullptr, nullptr);
 				chars.erase(it++);
 			}
 		} else {
@@ -136,6 +142,9 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		}
 		zoom += dZ;
 		orxCamera_SetZoom(camera, zoom);
+		orxCHAR text[20];
+		orxString_Print(text, "Zoom: %.2fx", zoom);
+		orxObject_SetTextString(zoomLabel, text);
 		orxKeyboard_ClearBuffer();
 	}
 	for (std::list<Character*>::iterator it = chars.begin(); it != chars.end();) {
@@ -144,11 +153,11 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		orxVECTOR pos = (*it)->getPosition();
 		bool atOrigin = orxVector_GetSize(&pos) < 10;
 		if (destroyed || atOrigin) {
-			(*it)->despawn();
-			chars.erase(it++);
 			if (destroyed) {
+				(*it)->despawn(&HP, &score);
 				changeScore(10);
 			} else {
+				(*it)->despawn(nullptr, nullptr);
 				changeHP(-5);
 				if (HP <= 0) {
 					orxObject_Enable(gameOver, orxTRUE);
@@ -156,6 +165,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 					orxCamera_SetZoom(camera, zoom);
 				}
 			}
+			chars.erase(it++);
 		} else {
 			it++;
 		}

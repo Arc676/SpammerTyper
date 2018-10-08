@@ -22,7 +22,16 @@ class Character {
 	orxOBJECT* entity;
 	orxVECTOR position, direction;
 	orxKEYBOARD_KEY key;
+
+	int hpGain = 0, scoreGain = 0;
+
+	static orxCOLOR red, green;
 public:
+	/**
+	 * Initializes color constants
+	 */
+	static void initColors();
+
 	/**
 	 * Constructs a new character
 	 * @param pos Initial position for the character
@@ -38,8 +47,10 @@ public:
 
 	/**
 	 * Destroy the associated entity
+	 * @param HP Pointer to player health if HP gain should be applied
+	 * @param score Pointer to player score if score bonuses should be applied
 	 */
-	void despawn();
+	void despawn(int* HP, int* score);
 
 	/**
 	 * Gets the associated key
