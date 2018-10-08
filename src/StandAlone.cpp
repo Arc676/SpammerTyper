@@ -96,7 +96,7 @@ void StandAlone::spawnChar() {
 	if (orxMath_GetRandomU32(0, 99) < 50) {
 		pos.fY *= -1;
 	}
-	Character* c = new Character(pos,
+	Character* c = new Character(HP, pos,
 		(orxKEYBOARD_KEY)orxMath_GetRandomU32(0, orxKEYBOARD_KEY_9));
 	chars.push_back(c);
 }
@@ -110,6 +110,13 @@ void StandAlone::changeScore(int delta) {
 
 void StandAlone::changeHP(int delta) {
 	HP += delta;
+	if (HP <= 0) {
+		HP = 0;
+		orxObject_Enable(gameOver, orxTRUE);
+		zoom = 1;
+		orxCamera_SetZoom(camera, zoom);
+		orxObject_SetTextString(zoomLabel, "Zoom: 1.00x");
+	}
 	orxVECTOR scale = {(orxFLOAT)HP, 1, 1};
 	orxObject_SetScale(HPBar, &scale);
 }
@@ -149,6 +156,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		orxObject_SetTextString(zoomLabel, text);
 		orxKeyboard_ClearBuffer();
 	}
+	bool charFound = false;
 	for (std::list<Character*>::iterator it = chars.begin(); it != chars.end();) {
 		(*it)->update(clockInfo);
 		bool destroyed = key != orxKEYBOARD_KEY_NONE && (*it)->getKey() == key;
@@ -157,20 +165,20 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		if (destroyed || atOrigin) {
 			if (destroyed) {
 				(*it)->despawn(&HP, &score);
+				changeHP(0);
 				changeScore(10);
 				key = orxKEYBOARD_KEY_NONE;
+				charFound = true;
 			} else {
 				(*it)->despawn(nullptr, nullptr);
-				changeHP(-5);
-				if (HP <= 0) {
-					orxObject_Enable(gameOver, orxTRUE);
-					zoom = 1;
-					orxCamera_SetZoom(camera, zoom);
-				}
+				changeHP(-50);
 			}
 			chars.erase(it++);
 		} else {
 			it++;
 		}
+	}
+	if (!charFound && key != orxKEYBOARD_KEY_NONE && key != orxKEYBOARD_KEY_SPACE) {
+		changeHP(-50);
 	}
 }

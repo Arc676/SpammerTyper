@@ -34,7 +34,7 @@ void Character::initColors() {
 	green.fAlpha = 1;
 }
 
-Character::Character(orxVECTOR pos, orxKEYBOARD_KEY character) {
+Character::Character(int HP, orxVECTOR pos, orxKEYBOARD_KEY character) {
 	// copy character properties
 	orxVector_Copy(&position, &pos);
 	key = character;
@@ -49,7 +49,7 @@ Character::Character(orxVECTOR pos, orxKEYBOARD_KEY character) {
 	// determine movement vector
 	orxVector_Mulf(&direction, &pos, -1.0f);
 	orxVector_Normalize(&direction, &direction);
-	orxVector_Mulf(&direction, &direction, 50.0f);
+	orxVector_Mulf(&direction, &direction, (orxFLOAT)HP / 2);
 
 	switch (orxMath_GetRandomU32(0, 2)) {
 	case 1:

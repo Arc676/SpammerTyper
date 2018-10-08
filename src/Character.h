@@ -34,10 +34,11 @@ public:
 
 	/**
 	 * Constructs a new character
+	 * @param HP Player's current health
 	 * @param pos Initial position for the character
 	 * @param character The character to display (and to type to destroy this entity)
 	 */
-	Character(orxVECTOR pos, orxKEYBOARD_KEY character);
+	Character(int HP, orxVECTOR pos, orxKEYBOARD_KEY character);
 
 	/**
 	 * Update the character's position
