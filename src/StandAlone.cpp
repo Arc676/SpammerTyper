@@ -69,6 +69,8 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	zoomLabel = orxObject_CreateFromConfig("Zoom");
 	orxObject_SetParent(zoomLabel, camera);
 
+	orxObject_CreateFromConfig("Player");
+
 	Character::initColors();
 
 	return orxSTATUS_SUCCESS;
@@ -130,7 +132,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		}
 	}
 	secondsSinceSpawn += clockInfo->fDT;
-	if (secondsSinceSpawn > pow(2, zoom - 1)) {
+	if (secondsSinceSpawn > pow(2, zoom - 2)) {
 		secondsSinceSpawn = 0;
 		spawnChar();
 	}
@@ -151,11 +153,12 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		(*it)->update(clockInfo);
 		bool destroyed = key != orxKEYBOARD_KEY_NONE && (*it)->getKey() == key;
 		orxVECTOR pos = (*it)->getPosition();
-		bool atOrigin = orxVector_GetSize(&pos) < 10;
+		bool atOrigin = orxVector_GetSize(&pos) < 25;
 		if (destroyed || atOrigin) {
 			if (destroyed) {
 				(*it)->despawn(&HP, &score);
 				changeScore(10);
+				key = orxKEYBOARD_KEY_NONE;
 			} else {
 				(*it)->despawn(nullptr, nullptr);
 				changeHP(-5);

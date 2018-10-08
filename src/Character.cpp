@@ -49,7 +49,7 @@ Character::Character(orxVECTOR pos, orxKEYBOARD_KEY character) {
 	// determine movement vector
 	orxVector_Mulf(&direction, &pos, -1.0f);
 	orxVector_Normalize(&direction, &direction);
-	orxVector_Mulf(&direction, &direction, 40.0f);
+	orxVector_Mulf(&direction, &direction, 50.0f);
 
 	switch (orxMath_GetRandomU32(0, 2)) {
 	case 1:

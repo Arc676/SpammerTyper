@@ -8,6 +8,8 @@ The catch: every time you hit a character, the camera zooms in a bit, giving you
 
 The other catch: the spawn rate of characters is inversely proportional to the zoom level. If you're zoomed in, you have less time to react to incoming characters, but fewer characters spawn in a given time period. If you're zoomed out, you have more time to react, but you'll have to deal with more characters.
 
+Characters randomly spawn with score or HP bonuses. Red characters give you an HP boost. Green characters give an additional point bonus when typed.
+
 ## About
 
 SpammerTyper was created for the [Open Jam 2018](https://itch.io/jam/open-jam-2018). Theme: Spam to win.
