@@ -47,10 +47,23 @@ private:
 	// characters to destroy
 	static std::list<Character*> chars;
 	static orxFLOAT secondsSinceSpawn;
+
+	/**
+	 * Spawns a new random character at a random location
+	 */
 	static void spawnChar();
 
 	// player state
 	static int HP, score;
+
+	/**
+	 * Alters the player's score by the given delta
+	 * @param delta Amount by which to change score
+	 */
+	static void changeScore(int delta);
+
+	// UI elements
+	static orxOBJECT *gameOver, *scoreLabel;
 };
 
 #endif
