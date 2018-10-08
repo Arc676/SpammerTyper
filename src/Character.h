@@ -40,6 +40,12 @@ public:
 	 * Destroy the associated entity
 	 */
 	void despawn();
+
+	/**
+	 * Gets the associated key
+	 * @return Key code for the character
+	 */
+	orxKEYBOARD_KEY getKey();
 };
 
 #endif

@@ -17,6 +17,8 @@
 #define StandAlone_h
 
 #include <list>
+#include <ctime>
+#include <cmath>
 
 #include "orx.h"
 #include "Character.h"

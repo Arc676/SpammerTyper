@@ -32,6 +32,7 @@ StandAlone* StandAlone::Instance() {
 StandAlone::StandAlone() {}
 
 orxSTATUS orxFASTCALL StandAlone::Init() {
+	orxMath_InitRandom((orxU32)time(0));
 	orxVIEWPORT* viewport = orxViewport_CreateFromConfig("Viewport");
 	camera = orxViewport_GetCamera(viewport);
 
@@ -74,7 +75,7 @@ void StandAlone::spawnChar() {
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
 	secondsSinceSpawn += clockInfo->fDT;
-	if (secondsSinceSpawn > 1) {
+	if (secondsSinceSpawn > pow(2, zoom - 1)) {
 		secondsSinceSpawn = 0;
 		spawnChar();
 	}
@@ -90,6 +91,14 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 			break;
 		default:
 			dZ = 0.1;
+			for (std::list<Character*>::iterator it = chars.begin(); it != chars.end();) {
+				if ((*it)->getKey() == key) {
+					(*it)->despawn();
+					chars.erase(it++);
+				} else {
+					it++;
+				}
+			}
 			break;
 		}
 		if (dZ != 0) {
