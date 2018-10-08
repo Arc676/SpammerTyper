@@ -48,3 +48,7 @@ void Character::despawn() {
 orxKEYBOARD_KEY Character::getKey() {
 	return key;
 }
+
+orxVECTOR Character::getPosition() {
+	return position;
+}

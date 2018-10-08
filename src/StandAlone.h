@@ -33,8 +33,6 @@ public:
 	static void orxFASTCALL Exit();
 
 	static void orxFASTCALL Update(const orxCLOCK_INFO*, void*);
-
-	static orxSTATUS orxFASTCALL EventHandler(const orxEVENT*);
 protected:
 	StandAlone();
 	StandAlone(const StandAlone&);
@@ -42,13 +40,17 @@ protected:
 private:
 	static StandAlone* m_Instance;
 
+	// camera state
 	static orxCAMERA* camera;
 	static orxFLOAT zoom;
 
+	// characters to destroy
 	static std::list<Character*> chars;
 	static orxFLOAT secondsSinceSpawn;
-
 	static void spawnChar();
+
+	// player state
+	static int HP, score;
 };
 
 #endif

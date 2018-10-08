@@ -46,6 +46,12 @@ public:
 	 * @return Key code for the character
 	 */
 	orxKEYBOARD_KEY getKey();
+
+	/**
+	 * Gets the character's position in the world
+	 * @return Current position vector for the character
+	 */
+	orxVECTOR getPosition();
 };
 
 #endif
