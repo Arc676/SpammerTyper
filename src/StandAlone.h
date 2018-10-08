@@ -62,8 +62,14 @@ private:
 	 */
 	static void changeScore(int delta);
 
+	/**
+	 * Alters the player's HP by the given delta
+	 * @param delta Amount by which to change HP
+	 */
+	static void changeHP(int delta);
+
 	// UI elements
-	static orxOBJECT *gameOver, *scoreLabel;
+	static orxOBJECT *gameOver, *scoreLabel, *HPBar;
 };
 
 #endif

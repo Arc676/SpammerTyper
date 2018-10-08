@@ -28,6 +28,7 @@ int StandAlone::score = 0;
 
 orxOBJECT* StandAlone::gameOver;
 orxOBJECT* StandAlone::scoreLabel;
+orxOBJECT* StandAlone::HPBar;
 
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != orxNULL) {
@@ -60,6 +61,9 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 
 	orxOBJECT* hplbl = orxObject_CreateFromConfig("Health");
 	orxObject_SetParent(hplbl, camera);
+
+	HPBar = orxObject_CreateFromConfig("HPBar");
+	orxObject_SetParent(HPBar, camera);
 
 	return orxSTATUS_SUCCESS;
 }
@@ -96,6 +100,12 @@ void StandAlone::changeScore(int delta) {
 	orxObject_SetTextString(scoreLabel, text);
 }
 
+void StandAlone::changeHP(int delta) {
+	HP += delta;
+	orxVECTOR scale = {(orxFLOAT)HP, 1, 1};
+	orxObject_SetScale(HPBar, &scale);
+}
+
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
 	if (HP <= 0) {
 		orxKEYBOARD_KEY key = orxKeyboard_ReadKey();
@@ -103,7 +113,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		if (key == orxKEYBOARD_KEY_RETURN) {
 			orxObject_Enable(gameOver, orxFALSE);
 			changeScore(-score);
-			HP = 100;
+			changeHP(100 - HP);
 			secondsSinceSpawn = 0;
 			for (std::list<Character*>::iterator it = chars.begin(); it != chars.end();) {
 				(*it)->despawn();
@@ -139,7 +149,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 			if (destroyed) {
 				changeScore(10);
 			} else {
-				HP -= 5;
+				changeHP(-5);
 				if (HP <= 0) {
 					orxObject_Enable(gameOver, orxTRUE);
 					zoom = 1;

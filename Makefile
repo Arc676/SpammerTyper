@@ -25,7 +25,7 @@ spammertyper: copyassets $(_OBJS)
 
 copyassets:
 	mkdir -p $(OUTDIR) $(ODIR)
-	cp -u bin/*.ini $(OUTDIR)
+	cp -u bin/* $(OUTDIR)
 
 $(ODIR)/%.o: $(SDIR)/%.cpp
 	$(CC) $(FLAGS) $(LD) $^
