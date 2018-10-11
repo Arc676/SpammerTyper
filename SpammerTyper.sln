@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpammerTyper", "SpammerTyper.vcxproj", "{628A454D-3D67-074F-AF17-BEB44168C8AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Profile|x64 = Profile|x64
+		Profile|x86 = Profile|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Debug|x64.ActiveCfg = Debug|x64
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Debug|x64.Build.0 = Debug|x64
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Debug|x86.ActiveCfg = Debug|Win32
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Debug|x86.Build.0 = Debug|Win32
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Profile|x64.ActiveCfg = Profile|x64
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Profile|x64.Build.0 = Profile|x64
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Profile|x86.ActiveCfg = Profile|Win32
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Profile|x86.Build.0 = Profile|Win32
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Release|x64.ActiveCfg = Release|x64
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Release|x64.Build.0 = Release|x64
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Release|x86.ActiveCfg = Release|Win32
+		{628A454D-3D67-074F-AF17-BEB44168C8AC}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4546197B-A36E-4684-9443-6D2CD55DD9DA}
+	EndGlobalSection
+EndGlobal

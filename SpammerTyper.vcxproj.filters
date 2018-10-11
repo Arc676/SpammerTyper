@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{F270E6FA-1FD3-3A45-8C43-17613113B80E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{d864a502-d17c-4b64-85f3-3be94a5c3d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{20f790f8-e460-4006-9204-5cc9d2ffe115}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\anim\orxAnim.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\anim\orxAnimPointer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\anim\orxAnimSet.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\orxBuild.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\orxDecl.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\orxModule.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\orxType.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\orxVersion.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxClock.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxCommand.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxConfig.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxConsole.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxEvent.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxLocale.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxResource.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxSystem.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\core\orxThread.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\debug\orxDebug.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\debug\orxFPS.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\debug\orxProfiler.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\display\orxDisplay.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\display\orxFont.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\display\orxGraphic.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\display\orxScreenshot.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\display\orxText.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\display\orxTexture.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\io\orxFile.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\io\orxInput.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\io\orxJoystick.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\io\orxKeyboard.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\io\orxMouse.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\main\orxAndroid.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\main\orxParam.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\math\orxAABox.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\math\orxMath.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\math\orxOBox.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\math\orxVector.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\memory\orxBank.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\memory\orxMemory.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\object\orxFrame.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\object\orxFX.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\object\orxFXPointer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\object\orxObject.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\object\orxSpawner.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\object\orxStructure.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\object\orxTimeLine.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\orx.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\orxInclude.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\orxKernel.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\orxPluginAPI.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\orxUtils.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\physics\orxBody.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\physics\orxPhysics.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_CoreDefine.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_CoreID.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_Display.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_Joystick.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_Keyboard.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_Mouse.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_Physics.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_Render.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\define\orxPlugin_SoundSystem.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\orxPlugin.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\orxPluginCore.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\orxPluginType.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugin\orxPluginUser.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\render\orxCamera.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\render\orxRender.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\render\orxShader.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\render\orxShaderPointer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\render\orxViewport.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sound\orxSound.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sound\orxSoundPointer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sound\orxSoundSystem.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\utils\orxHashTable.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\utils\orxLinkList.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\utils\orxString.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\utils\orxTree.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StandAlone.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\orx.lib">
+      <Filter>lib</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Character.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StandAlone.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -20,12 +20,17 @@ ifdef DEBUG
 	FLAGS += -g -O0
 endif
 
+CP=cp -u
+ifdef MAC
+	CP=cp
+endif
+
 spammertyper: copyassets $(_OBJS)
 	$(CC) $(LD) $(_OBJS) $(LIB) -o $(OUTPUT)
 
 copyassets:
 	mkdir -p $(OUTDIR) $(ODIR)
-	cp -u bin/* $(OUTDIR)
+	$(CP) bin/* $(OUTDIR)
 
 $(ODIR)/%.o: $(SDIR)/%.cpp
 	$(CC) $(FLAGS) $(LD) $^
